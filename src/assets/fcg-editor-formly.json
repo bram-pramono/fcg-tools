@@ -1,0 +1,219 @@
+{
+  "type": "object",
+  "templateOptions": {
+    "label": "FCG Editor",
+    "description": "Structure of FCG Editor"
+  },
+  "fieldGroup": [
+    {
+      "type": "object",
+      "templateOptions": {
+        "description": "The metadata of the grammar"
+      },
+      "key": "base",
+      "fieldGroup": [
+        {
+          "type": "string",
+          "templateOptions": {
+            "label": "Grammar ID",
+            "placeholder": "my-grammar-1",
+            "required": true
+          },
+          "key": "grammarId",
+          "expressionProperties": {}
+        },
+        {
+          "type": "string",
+          "templateOptions": {
+            "label": "Title",
+            "placeholder": "My first grammar",
+            "required": true
+          },
+          "key": "title",
+          "expressionProperties": {}
+        },
+        {
+          "type": "string",
+          "templateOptions": {
+            "label": "Version"
+          },
+          "key": "version"
+        },
+        {
+          "type": "string",
+          "templateOptions": {
+            "label": "Description"
+          },
+          "key": "description"
+        },
+        {
+          "type": "string",
+          "templateOptions": {
+            "label": "Date"
+          },
+          "key": "date"
+        },
+        {
+          "type": "object",
+          "templateOptions": {
+            "label": "Feature Types"
+          },
+          "key": "featureTypes",
+          "fieldGroup": [
+            {
+              "type": "boolean",
+              "templateOptions": {
+                "label": "Args Sequence"
+              },
+              "key": "argsSequence"
+            },
+            {
+              "type": "boolean",
+              "templateOptions": {
+                "label": "Form Set Of Predicates"
+              },
+              "key": "formSetOfPredicates"
+            },
+            {
+              "type": "boolean",
+              "templateOptions": {
+                "label": "Meaning Set Of Predicates"
+              },
+              "key": "meaningSetOfPredicates"
+            },
+            {
+              "type": "boolean",
+              "templateOptions": {
+                "label": "Constituents Sequence"
+              },
+              "key": "constituentsSequence"
+            },
+            {
+              "type": "boolean",
+              "templateOptions": {
+                "label": "Dependents Sequence"
+              },
+              "key": "dependentsSequence"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "templateOptions": {
+            "label": "Hierarchy Features"
+          },
+          "key": "hierarchyFeatures",
+          "fieldGroup": [
+            {
+              "type": "boolean",
+              "templateOptions": {
+                "label": "Constituents Dependents"
+              },
+              "key": "constituentsDependents"
+            }
+          ]
+        }
+      ],
+      "expressionProperties": {}
+    },
+    {
+      "key": "constructions",
+      "type": "array",
+      "templateOptions": {
+        "description": "Lists of all constructions in the grammar",
+        "minItems": 1
+      },
+      "validators": {},
+      "expressionProperties": {},
+      "fieldArray": {
+        "type": "object",
+        "templateOptions": {
+          "description": "The construction"
+        },
+        "fieldGroup": [
+          {
+            "type": "string",
+            "templateOptions": {},
+            "key": "constructionName",
+            "expressionProperties": {}
+          },
+          {
+            "key": "contribution",
+            "type": "object",
+            "templateOptions": {
+              "description": "The contributing parts"
+            },
+            "fieldGroup": [
+              {
+                "type": "array",
+                "templateOptions": {},
+                "key": "units",
+                "fieldArray": {
+                  "type": "object",
+                  "templateOptions": {},
+                  "fieldGroup": [
+                    {
+                      "type": "string",
+                      "templateOptions": {},
+                      "key": "variableName",
+                      "expressionProperties": {}
+                    },
+                    {
+                      "type": "array",
+                      "templateOptions": {},
+                      "key": "contents",
+                      "fieldArray": {
+                        "type": "string",
+                        "templateOptions": {}
+                      },
+                      "expressionProperties": {}
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "array",
+            "templateOptions": {
+              "description": "The conditional parts"
+            },
+            "key": "conditional",
+            "fieldArray": {
+              "type": "object",
+              "templateOptions": {},
+              "fieldGroup": [
+                {
+                  "type": "string",
+                  "templateOptions": {},
+                  "key": "variableName",
+                  "expressionProperties": {}
+                },
+                {
+                  "type": "array",
+                  "templateOptions": {},
+                  "key": "formulation",
+                  "fieldArray": {
+                    "type": "string",
+                    "templateOptions": {}
+                  }
+                },
+                {
+                  "type": "array",
+                  "templateOptions": {},
+                  "key": "comprehension",
+                  "fieldArray": {
+                    "type": "string",
+                    "templateOptions": {}
+                  },
+                  "expressionProperties": {}
+                }
+              ]
+            },
+            "expressionProperties": {}
+          }
+        ]
+      }
+    }
+  ]
+}

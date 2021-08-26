@@ -1,0 +1,35 @@
+{
+  "key": "contributingPart",
+  "type": "repeat",
+  "wrappers": ["panel"],
+  "templateOptions": {
+    "label": "Contributing Part",
+    "description": "The contributing parts",
+    "addText": "Add unit"
+  },
+  "fieldArray": {
+    "key": "contributingUnits",
+    "templateOptions": {
+      "label": "Contributing Units"
+    },
+    "fieldGroup": [
+      {
+        "key": "variableName",
+        "type": "input",
+        "templateOptions": {
+          "label": "Variable Name"
+        },
+        "expressionProperties": {}
+      },
+      {
+        "key": "featureSet",
+        "type": "textarea",
+        "templateOptions": {
+          "label": "Feature Set",
+          "rows": 2
+        },
+        "expressionProperties": {}
+      }
+    ]
+  }
+}

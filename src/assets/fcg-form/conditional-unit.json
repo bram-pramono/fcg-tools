@@ -1,0 +1,42 @@
+{
+  "key": "conditionalPart",
+  "type": "repeat",
+  "wrappers": ["panel"],
+  "templateOptions": {
+    "label": "Conditional Part",
+    "description": "The conditional parts",
+    "addText": "Add unit"
+  },
+  "fieldArray": {
+    "key": "conditionalUnits",
+    "templateOptions": {
+      "label": "Conditional Units"
+    },
+    "fieldGroup": [
+      {
+        "key": "variableName",
+        "type": "input",
+        "templateOptions": {
+          "label": "Variable Name"
+        },
+        "expressionProperties": {}
+      },
+      {
+        "key": "formulation",
+        "type": "textarea",
+        "templateOptions": {
+          "label": "Formulation Feature Set",
+          "rows": 2
+        }
+      },
+      {
+        "key": "comprehension",
+        "type": "textarea",
+        "templateOptions": {
+          "label": "Comprehension Feature Set",
+          "rows": 2
+        }
+      }
+    ]
+  }
+}

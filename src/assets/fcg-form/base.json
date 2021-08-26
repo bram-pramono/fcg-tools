@@ -1,0 +1,110 @@
+{
+  "key": "base",
+  "templateOptions": {
+    "label": "Metadata"
+  },
+  "fieldGroup": [
+    {
+      "key": "grammarId",
+      "type": "input",
+      "templateOptions": {
+        "label": "Grammar ID",
+        "placeholder": "my-grammar-1",
+        "required": true
+      },
+      "expressionProperties": {}
+    },
+    {
+      "key": "title",
+      "type": "input",
+      "templateOptions": {
+        "label": "Title",
+        "placeholder": "My first grammar",
+        "required": true
+      },
+      "expressionProperties": {}
+    },
+    {
+      "key": "version",
+      "type": "input",
+      "templateOptions": {
+        "label": "Version"
+      }
+    },
+    {
+      "key": "description",
+      "type": "textarea",
+      "templateOptions": {
+        "label": "Description"
+      }
+    },
+    {
+      "type": "input",
+      "templateOptions": {
+        "label": "Date"
+      },
+      "key": "date"
+    },
+
+    {
+      "key": "featureTypes",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Feature Types"
+      },
+      "fieldGroup": [
+        {
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "Args Sequence"
+          },
+          "key": "argsSequence"
+        },
+        {
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "Form Set Of Predicates"
+          },
+          "key": "formSetOfPredicates"
+        },
+        {
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "Meaning Set Of Predicates"
+          },
+          "key": "meaningSetOfPredicates"
+        },
+        {
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "Constituents Sequence"
+          },
+          "key": "constituentsSequence"
+        },
+        {
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "Dependents Sequence"
+          },
+          "key": "dependentsSequence"
+        }
+      ]
+    },
+    {
+      "key": "hierarchyFeatures",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Hierarchy Features"
+      },
+      "fieldGroup": [
+        {
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "Constituents Dependents"
+          },
+          "key": "constituentsDependents"
+        }
+      ]
+    }
+  ]
+}

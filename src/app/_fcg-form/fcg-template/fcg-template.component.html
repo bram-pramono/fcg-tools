@@ -1,0 +1,21 @@
+<ng-container *ngIf="!codePreviewShow">
+  <div class="row p-3">
+    <div class="col">
+      <button class="btn btn-primary" (click)="transformToFcgEditorCode()">Transform into FCG editor code</button>
+    </div>
+  </div>
+
+  <formly-form [model]="fcgModel" [fields]="fields" [options]="options" [form]="form"></formly-form>
+
+  <div class="row p-3">
+    <div class="col">
+      <button class="btn btn-primary" (click)="transformToFcgEditorCode()">Transform into FCG editor code</button>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="codePreviewShow">
+  <button class="btn btn-outline-primary" (click)="copyFcgCode()">Copy code</button>
+  <pre>
+{{ fcgCode }}
+  </pre>
+</ng-container>

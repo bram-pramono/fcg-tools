@@ -1,0 +1,11 @@
+.repeat-block {
+  padding: 1rem;
+  border: solid 1px;
+  border-radius: 5px;
+  &:nth-child(even){
+    border-color: #cccccc;
+  }
+  &:nth-child(odd){
+    border-color: #221aff;
+  }
+}

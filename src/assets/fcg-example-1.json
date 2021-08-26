@@ -1,0 +1,163 @@
+{
+  "base": {
+    "grammarId": "grammar-1",
+    "title": "Sample FCG Editor",
+    "version": "0.1",
+    "featureTypes": {
+      "argsSequence": true,
+      "constituentsSequence": true,
+      "formSetOfPredicates": false,
+      "meaningSetOfPredicates": false,
+      "dependentsSequence": false
+    },
+    "hierarchyFeatures": {
+      "constituentsDependents": true
+    },
+    "description": "A dummy example to show if it is possible to use JSON schema to manage the complexity of the FCG editor texts"
+  },
+  "constructions": [
+    {
+      "constructionName": "the-cxn",
+      "contributingPart": [
+        {
+          "variableName": "the-word",
+          "featureSet": "args (?x)\nsem-cat (sem-class referent)\nsyn-cat (lex-class article)"
+        }
+      ],
+      "conditionalPart": [
+        {
+          "variableName": "the-word",
+          "formulation": "HASH meaning ((unique ?x))",
+          "comprehension": "HASH form ((string ?the-word 'the'))"
+        }
+      ]
+    },
+    {
+      "constructionName": "mouse-cxn",
+      "contributingPart": [
+        {
+          "variableName": "mouse-word",
+          "featureSet": "args (?x)\nsem-cat (sem-class physical-entity)\nsyn-cat (lex-class noun)"
+        }
+      ],
+      "conditionalPart": [
+        {
+          "variableName": "mouse-word",
+          "formulation": "HASH meaning ((mouse ?x))",
+          "comprehension": "HASH form ((string ?mouse-word 'mouse'))"
+        }
+      ]
+    },
+    {
+      "constructionName": "likes-cxn",
+      "contributingPart": [
+        {
+          "variableName": "likes-word",
+          "featureSet": "args (?x ?y)\nsem-cat (sem-class relation)\nsyn-cat (lex-class verb) (type transitive)"
+        }
+      ],
+      "conditionalPart": [
+        {
+          "variableName": "likes-word",
+          "formulation": "HASH meaning ((deep-affection ?x ?y))",
+          "comprehension": "HASH form ((string ?likes-word  'likes'))"
+        }
+      ]
+    },
+    {
+      "constructionName": "linguist-cxn",
+      "contributingPart": [
+        {
+          "variableName": "linguist-word",
+          "featureSet": "args (?x)\nsem-cat (sem-class physical-entity)\nsyn-cat (lex-class noun)"
+        }
+      ],
+      "conditionalPart": [
+        {
+          "variableName": "linguist-word",
+          "formulation": "HASH meaning ((linguist ?x))",
+          "comprehension": "HASH form ((string ?linguist-word  'linguist')"
+        }
+      ]
+    },
+    {
+      "constructionName": "noun-phrase-cxn",
+      "contributingPart": [
+        {
+          "variableName": "noun-phrase",
+          "featureSet": "args (?x)\nsem-cat (sem-class referring-expression)\nsyn-cat (lex-class noun-phrase)\nconstituents (?article ?noun)"
+        },
+        {
+          "variableName": "noun",
+          "featureSet": "dependents (?article)"
+        }
+      ],
+      "conditionalPart": [
+        {
+          "variableName": "article",
+          "formulation": "args (?x)\nsem-cat (sem-class referent)",
+          "comprehension": "syn-cat (lex-class article)"
+        },
+        {
+          "variableName": "noun",
+          "formulation": "args (?x)\nsem-cat (sem-class physical-entity)",
+          "comprehension": "syn-cat (lex-class noun)"
+        },
+        {
+          "variableName": "noun-phrase",
+          "comprehension": "HASH form ((meets ?article ?noun))"
+        }
+      ]
+    },
+    {
+      "constructionName": "verb-phrase-cxn",
+      "contributingPart": [
+        {
+          "variableName": "verb-phrase",
+          "featureSet": "args (?x ?y)\nsem-cat (sem-class relational-expression)\nsyn-cat (lex-class verb-phrase) (type transitive))\nconstituents (?verb))"
+        }
+      ],
+      "conditionalPart": [
+        {
+          "variableName": "verb",
+          "formulation": "args (?x ?y)\nsem-cat (sem-class relation)",
+          "comprehension": "syn-cat (lex-class verb) (type transitive)"
+        }
+      ]
+    },
+    {
+      "constructionName": "transitive-clause-cxn",
+      "contributingPart": [
+        {
+          "variableName": "transitive-clause",
+          "featureSet": "args (?x ?y)\nsem-cat (sem-class predicating-expression)\nsyn-cat (lex-class transitive-clause)\nconstituents (?subject-noun-phrase ?verb-phrase ?object-noun-phrase)"
+        },
+        {
+          "variableName": "verb",
+          "featureSet": "dependents (?subject-noun ?object-noun)"
+        }
+      ],
+      "conditionalPart": [
+        {
+          "variableName": "subject-noun-phrase",
+          "formulation": "args (?x)\nsem-cat (sem-class referring-expression)\nconstituents (?subject-article ?subject-noun)",
+          "comprehension": "syn-cat (lex-class noun-phrase)\nconstituents (?subject-article ?subject-noun)"
+        },
+        {
+          "variableName": "verb-phrase",
+          "formulation": "args (?x ?y)\nsem-cat (sem-class relational-expression)\nconstituents (?verb)",
+          "comprehension": "syn-cat (lex-class verb-phrase) (type transitive)\nconstituents (?verb)"
+        },
+        {
+          "variableName": "object-noun-phrase",
+          "formulation": "args (?y)\nsem-cat (sem-class referring-expression)\nconstituents (?object-article ?object-noun)",
+          "comprehension": "syn-cat (lex-class noun-phrase)\nconstituents (?object-article ?object-noun)"
+        },
+        {
+          "variableName": "transitive-clause",
+          "comprehension": "HASH form ((meets ?subject-noun ?verb) (meets ?verb ?object-article))"
+        }
+      ]
+    }
+  ]
+}
